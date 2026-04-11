@@ -24,6 +24,12 @@
   name = "C++ Projects"
   #pageRef = "projects"
   weight = 20
+
+[[main]]
+  name = "Alien Escape!!"
+  parent = "C++ Projects"
+  pageRef = "projects/AlienEscape!/index"
+  weight = 21
   
 [[main]]
   name = "Wallrun Movement Mechanic"
