@@ -10,6 +10,12 @@ tags = ["C++", "UnrealEngine", "Gameplay"]
 # Alien Escape!!
 ## UnrealEngine | C++ | Team Lead & Gameplay Programmer
 
+<!--![Alien Escape!! Poster](/images/AlienEscape!!.jpg)-->
+{{< figure 
+    src="/images/AlienEscape!!.jpg" 
+    alt="Alien Escape!! Poster" 
+    className="rounded-lg shadow-md" 
+>}}
 {{<youtubeLite id="4auNBrNdwN4" label="AlienEscape!! Teaser">}}
 
 Led a small team to develop an isometric 3D game for our graduation project, where players control an alien escaping an abandoned laboratory. 
