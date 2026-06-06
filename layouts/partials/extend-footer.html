@@ -1,0 +1,196 @@
+<canvas id="bg-animation" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 1; pointer-events: none;"></canvas>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const canvas = document.getElementById('bg-animation');
+    const ctx = canvas.getContext('2d');
+    
+    // 1. Declare the particles array globally within this wrapper scope
+    let particles = [];
+    
+    // 2. The Setup / Initialization Function
+    function init() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      
+      // Determine device type and set density throttle rule
+      const isMobile = window.innerWidth < 768;
+      const particleCount = isMobile ? 40 : 80; 
+
+      // Reset the array (crucial for when browser window resizes)
+      particles = [];
+
+      // Generate the freshly scaled array list
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 2 + 1,
+          vx: (Math.random() - 0.5) * 0.5,
+          vy: (Math.random() - 0.5) * 0.5
+        });
+      }
+    }
+
+    // 3. The Animation Loop
+    function animate() {
+      // Freeze engine processing completely if the tab isn't active
+      if (document.hidden) { 
+        requestAnimationFrame(animate); 
+        return; 
+      }
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = 'rgba(150, 150, 150, 0.3)'; 
+
+      particles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0) p.x = canvas.width;
+        if (p.x > canvas.width) p.x = 0;
+        if (p.y < 0) p.y = canvas.height;
+        if (p.y > canvas.height) p.y = 0;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    // 4. Hook up listeners and fire up execution
+    window.addEventListener('resize', init); // Re-run init when window boundaries scale
+    
+    init();    // Setup data arrays first
+    animate(); // Start drawing frames next
+  });
+</script>
+
+
+<!-- Replace your canvas with this structural container -->
+<!--<div class="blob-bg" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 1; pointer-events: none; overflow: hidden; filter: blur(80px); opacity: 0.25;">
+  <div style="position: absolute; width: 400px; height: 400px; background: #3b82f6; top: 10%; left: 10%; border-radius: 50%; animation: drift 20s infinite alternate linear;"></div>
+  <div style="position: absolute; width: 500px; height: 500px; background: #ec4899; bottom: 10%; right: 10%; border-radius: 50%; animation: drift 25s infinite alternate-reverse linear;"></div>
+</div>
+
+<style>
+  @keyframes drift {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(100px, 50px) scale(1.2); }
+  }
+</style>
+
+
+<!--<canvas id="grid-animation" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 1; pointer-events: none;"></canvas>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const canvas = document.getElementById('grid-animation');
+    const ctx = canvas.getContext('2d');
+    
+    let dots = [];
+    const spacing = 35; // Distance between dots in pixels
+    const mouse = { x: -1000, y: -1000, radius: 100 }; // Interaction zone
+
+    function initGrid() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      dots = [];
+
+      // Calculate rows and columns based on viewport size
+      const cols = Math.floor(canvas.width / spacing);
+      const rows = Math.floor(canvas.height / spacing);
+      
+      // Center the grid on the screen
+      const offsetX = (canvas.width - (cols * spacing)) / 2;
+      const offsetY = (canvas.height - (rows * spacing)) / 2;
+
+      for (let i = 0; i <= cols; i++) {
+        for (let j = 0; j <= rows; j++) {
+          const x = offsetX + i * spacing;
+          const y = offsetY + j * spacing;
+          dots.push({
+            x: x,  // Current X
+            y: y,  // Current Y
+            baseX: x, // Anchor/Home X
+            baseY: y, // Anchor/Home Y
+            vx: 0,
+            vy: 0
+          });
+        }
+      }
+    }
+
+    // Track mouse movement
+    window.addEventListener('mousemove', (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    });
+
+    // Clear mouse coordinate when cursor leaves window
+    window.addEventListener('mouseleave', () => {
+      mouse.x = -1000;
+      mouse.y = -1000;
+    });
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      // Set dot styling (subtle gray)
+      ctx.fillStyle = 'rgba(150, 150, 150, 0.25)';
+
+      dots.forEach(dot => {
+        // 1. Calculate distance between mouse and dot (Pythagorean Theorem)
+        const dx = mouse.x - dot.x;
+        const dy = mouse.y - dot.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        // 2. Interaction Logic: If mouse is close, push it away
+        if (distance < mouse.radius) {
+          // Calculate force multiplier based on proximity
+          const force = (mouse.radius - distance) / mouse.radius;
+          
+          // Determine push direction angles
+          const angle = Math.atan2(dy, dx);
+          
+          // Apply negative acceleration (pushing away from mouse)
+          dot.vx -= Math.cos(angle) * force * 1.2;
+          dot.vy -= Math.sin(angle) * force * 1.2;
+          
+          // Optional: Highlight nodes near cursor
+          ctx.fillStyle = 'rgba(14, 165, 233, 0.6)'; // Cyan pop accent
+        } else {
+          ctx.fillStyle = 'rgba(150, 150, 150, 0.25)';
+        }
+
+        // 3. Ease Back Home Logic (Spring physics so they return to grid positions)
+        dot.vx += (dot.baseX - dot.x) * 0.08;
+        dot.vy += (dot.baseY - dot.y) * 0.08;
+
+        // Friction/Damping factor so things don't shake forever
+        dot.vx *= 0.85;
+        dot.vy *= 0.85;
+
+        // Update tracking coordinates
+        dot.x += dot.vx;
+        dot.y += dot.vy;
+
+        // Draw the point
+        ctx.beginPath();
+        ctx.arc(dot.x, dot.y, 1.5, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    // Handle screen resize properly
+    window.addEventListener('resize', initGrid);
+
+    // Run
+    initGrid();
+    animate();
+  });
+</script> -->

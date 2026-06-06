@@ -28,7 +28,7 @@
 [[main]]
   name = "Alien Escape!!"
   parent = "C++ Projects"
-  pageRef = "projects/AlienEscape!/index"
+  pageRef = "projects/AlienEscape!"
   weight = 21
   
 [[main]]
@@ -52,6 +52,10 @@
 [[main]]
   name = "C# Projects"
   weight = 30
+
+[[main]]
+  name = "Blog"
+  weight = 40
 
 
 #[[subnavigation]]

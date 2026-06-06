@@ -9,7 +9,17 @@
     <managingEditor>hanimzaatar@gmail.com (Hani Zaatar)</managingEditor>
     <webMaster>hanimzaatar@gmail.com (Hani Zaatar)</webMaster>
     <copyright>© 2026 Hani Zaatar</copyright>
-    <lastBuildDate>Sat, 11 Apr 2026 18:06:30 +0200</lastBuildDate><atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 05 Jun 2026 23:59:19 +0200</lastBuildDate><atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>TidesOfTomorrow</title>
+      <link>//localhost:1313/projects/tidesoftomorrow/</link>
+      <pubDate>Fri, 05 Jun 2026 23:59:19 +0200</pubDate>
+      <author>hanimzaatar@gmail.com (Hani Zaatar)</author>
+      <guid>//localhost:1313/projects/tidesoftomorrow/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/projects/tidesoftomorrow/featured.jpg" />
+    </item>
     
     <item>
       <title>AlienEscape!</title>
@@ -18,17 +28,7 @@
       <author>hanimzaatar@gmail.com (Hani Zaatar)</author>
       <guid>//localhost:1313/projects/alienescape/</guid>
       <description></description>
-      
-    </item>
-    
-    <item>
-      <title>TidesOfTomorrow</title>
-      <link>//localhost:1313/projects/tidesoftomorrow/</link>
-      <pubDate>Mon, 06 Apr 2026 23:59:19 +0200</pubDate>
-      <author>hanimzaatar@gmail.com (Hani Zaatar)</author>
-      <guid>//localhost:1313/projects/tidesoftomorrow/</guid>
-      <description></description>
-      
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/projects/alienescape/featured.jpeg" />
     </item>
     
     <item>

@@ -1,0 +1,5 @@
+[download_cv]
+other = "Download CV"
+
+[cv_url]
+other = "/My_CV.pdf"

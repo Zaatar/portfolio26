@@ -8,7 +8,7 @@ tags = ["C++", "UnrealEngine", "Gameplay"]
 +++
 
 # Alien Escape!!
-## UnrealEngine | C++ | Tean Lead & Gameplay Programmer
+## UnrealEngine | C++ | Team Lead & Gameplay Programmer
 
 {{<youtubeLite id="4auNBrNdwN4" label="AlienEscape!! Teaser">}}
 
