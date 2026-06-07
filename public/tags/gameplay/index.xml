@@ -2,61 +2,61 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gameplay on Portfolio - Hani Zaatar</title>
-    <link>//localhost:1313/tags/gameplay/</link>
+    <link>http://localhost:1313/tags/gameplay/</link>
     <description>Recent content in Gameplay on Portfolio - Hani Zaatar</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>hanimzaatar@gmail.com (Hani Zaatar)</managingEditor>
     <webMaster>hanimzaatar@gmail.com (Hani Zaatar)</webMaster>
     <copyright>© 2026 Hani Zaatar</copyright>
-    <lastBuildDate>Fri, 05 Jun 2026 23:59:19 +0200</lastBuildDate><atom:link href="//localhost:1313/tags/gameplay/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 05 Jun 2026 23:59:19 +0200</lastBuildDate><atom:link href="http://localhost:1313/tags/gameplay/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>TidesOfTomorrow</title>
-      <link>//localhost:1313/projects/tidesoftomorrow/</link>
+      <link>http://localhost:1313/projects/tidesoftomorrow/</link>
       <pubDate>Fri, 05 Jun 2026 23:59:19 +0200</pubDate>
       <author>hanimzaatar@gmail.com (Hani Zaatar)</author>
-      <guid>//localhost:1313/projects/tidesoftomorrow/</guid>
+      <guid>http://localhost:1313/projects/tidesoftomorrow/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/projects/tidesoftomorrow/featured.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/projects/tidesoftomorrow/featured.jpg" />
     </item>
     
     <item>
       <title>AlienEscape!</title>
-      <link>//localhost:1313/projects/alienescape/</link>
+      <link>http://localhost:1313/projects/alienescape/</link>
       <pubDate>Sat, 11 Apr 2026 18:06:30 +0200</pubDate>
       <author>hanimzaatar@gmail.com (Hani Zaatar)</author>
-      <guid>//localhost:1313/projects/alienescape/</guid>
+      <guid>http://localhost:1313/projects/alienescape/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/projects/alienescape/featured.jpeg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/projects/alienescape/featured.jpeg" />
     </item>
     
     <item>
       <title>BrickBreaker</title>
-      <link>//localhost:1313/projects/brickbreaker/</link>
+      <link>http://localhost:1313/projects/brickbreaker/</link>
       <pubDate>Mon, 06 Apr 2026 23:53:54 +0200</pubDate>
       <author>hanimzaatar@gmail.com (Hani Zaatar)</author>
-      <guid>//localhost:1313/projects/brickbreaker/</guid>
+      <guid>http://localhost:1313/projects/brickbreaker/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>ThirdPersonShooter</title>
-      <link>//localhost:1313/projects/thirdpersonshooter/</link>
+      <link>http://localhost:1313/projects/thirdpersonshooter/</link>
       <pubDate>Mon, 06 Apr 2026 23:53:31 +0200</pubDate>
       <author>hanimzaatar@gmail.com (Hani Zaatar)</author>
-      <guid>//localhost:1313/projects/thirdpersonshooter/</guid>
+      <guid>http://localhost:1313/projects/thirdpersonshooter/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>WallrunMovementMechanic</title>
-      <link>//localhost:1313/projects/wallrunmovementmechanic/</link>
+      <link>http://localhost:1313/projects/wallrunmovementmechanic/</link>
       <pubDate>Mon, 06 Apr 2026 13:46:08 +0200</pubDate>
       <author>hanimzaatar@gmail.com (Hani Zaatar)</author>
-      <guid>//localhost:1313/projects/wallrunmovementmechanic/</guid>
+      <guid>http://localhost:1313/projects/wallrunmovementmechanic/</guid>
       <description></description>
       
     </item>
