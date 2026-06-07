@@ -31,31 +31,31 @@
   pageRef = "projects/AlienEscape!"
   weight = 21
   
-[[main]]
-  name = "Wallrun Movement Mechanic"
-  parent = "C++ Projects"
-  pageRef = "projects/WallrunMovementMechanic"
-  weight = 22
+#[[main]]
+#  name = "Wallrun Movement Mechanic"
+#  parent = "C++ Projects"
+#  pageRef = "projects/WallrunMovementMechanic"
+#  weight = 22
 
-[[main]]
-  name = "Third Person Shooter"
-  parent = "C++ Projects"
-  pageRef = "projects/ThirdPersonShooter"
-  weight = 23
+#[[main]]
+#  name = "Third Person Shooter"
+#  parent = "C++ Projects"
+#  pageRef = "projects/ThirdPersonShooter"
+#  weight = 23
   
-[[main]]
-  name = "Brick Breaker"
-  parent = "C++ Projects"
-  pageRef = "projects/BrickBreaker"
-  weight = 24
+#[[main]]
+#  name = "Brick Breaker"
+#  parent = "C++ Projects"
+#  pageRef = "projects/BrickBreaker"
+#  weight = 24
 
-[[main]]
-  name = "C# Projects"
-  weight = 30
+#[[main]]
+#  name = "C# Projects"
+#  weight = 30
 
-[[main]]
-  name = "Blog"
-  weight = 40
+#[[main]]
+#  name = "Blog"
+#  weight = 40
 
 
 #[[subnavigation]]
