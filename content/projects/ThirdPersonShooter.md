@@ -1,6 +1,6 @@
 +++
 date = '2026-04-06T23:53:31+02:00'
-draft = false
+draft = true
 title = 'Third Person Shooter'
 description = 'A third-person shooter prototype in Unreal Engine C++ with movement, weapon aiming and damage systems.'
 categories = ["projects"]
