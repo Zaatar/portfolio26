@@ -1,28 +1,37 @@
+{{/*
+  Overrides themes/blowfish/layouts/partials/author-links.html to centre the
+  social icons and add a "Download CV" button underneath.
+  The CV path and label come from i18n/<lang>.toml (cv_url, download_cv),
+  so to update the CV, drop the new PDF in static/ and change cv_url there.
+*/}}
 <div class="flex flex-col justify-center items-center gap-y-2">
+  {{ with .Site.Params.Author.links }}
     <div class="flex flex-row items-center justify-center">
-        {{- range $links := .Site.Params.Author.links -}}
-        {{- range $name, $url := $links -}}
-            <a class="px-2 text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300" 
-                href="{{ $url | safeURL }}" 
-                target="_blank" 
-                aria-label="{{ $name | title }}" 
-                rel="me noopener noreferrer">
-                {{ partial "icon.html" $name }}
-            </a>
-        {{- end -}}
-        {{- end -}}
+      {{ range $links := . }}
+        {{ range $name, $url := $links }}
+          {{/* Email is base64-encoded and decoded by the theme's email.js to keep it away from scrapers */}}
+          {{ $isEmail := eq $name "email" }}
+          <a
+            class="{{ cond $isEmail "email-link" "" }} px-2 text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300"
+            href="{{ cond $isEmail "#" ($url | safeURL) }}"
+            {{ if $isEmail }}data-email="{{ $url | base64Encode }}"{{ else }}target="_blank"{{ end }}
+            aria-label="{{ $name | title }}"
+            title="{{ $name | title }}"
+            rel="me noopener noreferrer">
+            {{ partial "icon.html" $name }}
+          </a>
+        {{ end }}
+      {{ end }}
     </div>
+  {{ end }}
 
-    <!--To update CV insert latest here-->
-     {{ $cvUrl := i18n "cv_url" | relLangURL}}
-    <a class="mt-2 inline-flex items-center px-3 py-1 text-sm font-medium rounded-full border border-neutral-300 hover:border-neutral-500 dark:border-neutral-700 dark:hover:border-neutral-500 text-neutral-600 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors duration-200" 
-       href="{{ $cvUrl }}"
-       download>
-      
-      <span class="mr-2.5 flex items-center justify-center w-4 h-4 text-neutral-400">
-        {{ partial "icon.html" "download" }}
-      </span>
-      
-      <span>{{ i18n "download_cv"}}</span>
-    </a>
+  <a
+    class="mt-2 inline-flex items-center px-3 py-1 text-sm font-medium rounded-full border border-neutral-300 hover:border-neutral-500 dark:border-neutral-700 dark:hover:border-neutral-500 text-neutral-600 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors duration-200"
+    href="{{ i18n "cv_url" | relLangURL }}"
+    download>
+    <span class="mr-2.5 flex items-center justify-center w-4 h-4 text-neutral-400">
+      {{ partial "icon.html" "download" }}
+    </span>
+    <span>{{ i18n "download_cv" }}</span>
+  </a>
 </div>

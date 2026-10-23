@@ -1,30 +1,31 @@
-<canvas id="bg-animation" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 1; pointer-events: none;"></canvas>
+<canvas id="bg-animation" aria-hidden="true" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 1; pointer-events: none;"></canvas>
 
 <script>
   window.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('bg-animation');
     const ctx = canvas.getContext('2d');
-    
-    // 1. Declare the particles array globally within this wrapper scope
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
     let particles = [];
-    
-    // 2. The Setup / Initialization Function
+    let frameId = null;
+    let resizeTimer = null;
+
+    // (Re)build the particle list to fit the current window
     function init() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      
-      // Determine device type and set density throttle rule
-      const isMobile = window.innerWidth < 768;
-      const particleCount = isMobile ? 40 : 80; 
+      // Draw at the screen's pixel density so dots stay crisp on high-DPI displays
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-      // Reset the array (crucial for when browser window resizes)
+      // Fewer particles on small screens
+      const particleCount = window.innerWidth < 768 ? 40 : 80;
+
       particles = [];
-
-      // Generate the freshly scaled array list
       for (let i = 0; i < particleCount; i++) {
         particles.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
+          x: Math.random() * window.innerWidth,
+          y: Math.random() * window.innerHeight,
           radius: Math.random() * 2 + 1,
           vx: (Math.random() - 0.5) * 0.5,
           vy: (Math.random() - 0.5) * 0.5
@@ -32,38 +33,69 @@
       }
     }
 
-    // 3. The Animation Loop
-    function animate() {
-      // Freeze engine processing completely if the tab isn't active
-      if (document.hidden) { 
-        requestAnimationFrame(animate); 
-        return; 
-      }
-
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = 'rgba(150, 150, 150, 0.3)'; 
+    function draw() {
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      ctx.fillStyle = 'rgba(150, 150, 150, 0.3)';
 
       particles.forEach(p => {
-        p.x += p.vx;
-        p.y += p.vy;
-
-        if (p.x < 0) p.x = canvas.width;
-        if (p.x > canvas.width) p.x = 0;
-        if (p.y < 0) p.y = canvas.height;
-        if (p.y > canvas.height) p.y = 0;
-
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fill();
       });
-
-      requestAnimationFrame(animate);
     }
 
-    // 4. Hook up listeners and fire up execution
-    window.addEventListener('resize', init); // Re-run init when window boundaries scale
-    
-    init();    // Setup data arrays first
-    animate(); // Start drawing frames next
+    function step() {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+
+      // Move each particle, wrapping around the screen edges
+      particles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0) p.x = width;
+        if (p.x > width) p.x = 0;
+        if (p.y < 0) p.y = height;
+        if (p.y > height) p.y = 0;
+      });
+
+      draw();
+      frameId = requestAnimationFrame(step);
+    }
+
+    function start() {
+      // Users who ask for reduced motion get a static field of dots instead
+      if (frameId !== null || reducedMotion.matches || document.hidden) return;
+      frameId = requestAnimationFrame(step);
+    }
+
+    function stop() {
+      if (frameId === null) return;
+      cancelAnimationFrame(frameId);
+      frameId = null;
+    }
+
+    // Fully stop the loop while the tab is hidden, resume when it comes back
+    document.addEventListener('visibilitychange', () => {
+      document.hidden ? stop() : start();
+    });
+
+    // React if the user toggles reduced motion while the page is open
+    reducedMotion.addEventListener('change', () => {
+      reducedMotion.matches ? stop() : start();
+    });
+
+    // Wait for resizing to settle before rebuilding the particles
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        init();
+        draw();
+      }, 150);
+    });
+
+    init();
+    draw();
+    start();
   });
 </script>
