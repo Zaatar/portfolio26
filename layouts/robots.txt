@@ -1,0 +1,23 @@
+{{- /* Overrides the theme's robots.txt: allow search engines in production, block AI crawlers */ -}}
+User-agent: *
+{{- if hugo.IsProduction | or (eq .Site.Params.env "production") }}
+Allow: /
+{{- else }}
+Disallow: /
+{{- end }}
+
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: OAI-SearchBot
+User-agent: ClaudeBot
+User-agent: Claude-Web
+User-agent: anthropic-ai
+User-agent: Google-Extended
+User-agent: CCBot
+User-agent: PerplexityBot
+User-agent: Bytespider
+User-agent: Applebot-Extended
+User-agent: meta-externalagent
+Disallow: /
+
+Sitemap: {{ "sitemap.xml" | absURL }}
