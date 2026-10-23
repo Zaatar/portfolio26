@@ -1,10 +1,10 @@
 +++
 date = '2026-06-05T23:59:19+02:00'
 draft = false
-title = 'TidesOfTomorrow'
-description = '...'
+title = 'Tides of Tomorrow'
+description = 'Gameplay & UI programmer on Tides of Tomorrow (DigixArt / THQ Nordic): core gameplay features, end-to-end UI and in-engine tools in Unreal Engine C++.'
 categories = ["projects"]
-tags = ["C++", "UnrealEngine", "Gameplay"]
+tags = ["C++", "UnrealEngine", "Gameplay", "UI", "Tools"]
 +++
 
 ## Developed by DigixArt Entertainment | Published under THQ Nordic

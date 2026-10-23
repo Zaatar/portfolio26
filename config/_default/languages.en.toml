@@ -11,7 +11,7 @@ title = "Portfolio - Hani Zaatar"
   dateFormat = "2 January 2006"
   # logo = "img/logo.png"
   # secondaryLogo = "img/secondary-logo.png"
-  # description = "My awesome website"
+  description = "Portfolio of Hani Zaatar, game, UI and tools programmer working in Unreal Engine and C++."
   # copyright = "Copy, _right?_ :thinking_face:"
 
  [params.author]
@@ -23,7 +23,7 @@ title = "Portfolio - Hani Zaatar"
    image = "https://avatars.githubusercontent.com/u/6802250?v=4"
    imageQuality = 96
    headline = "Game, UI and Tools Programmer"
-   bio = "A little bit about you"
+   bio = "Game, UI and tools programmer building gameplay systems, interfaces and in-engine tools in Unreal Engine and C++."
    links = [
      { email = "mailto:hanimzaatar@gmail.com" },
 #     { link = "https://link-to-some-website.com/" },

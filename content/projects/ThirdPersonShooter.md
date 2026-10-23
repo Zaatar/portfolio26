@@ -1,14 +1,12 @@
 +++
 date = '2026-04-06T23:53:31+02:00'
 draft = false
-title = 'ThirdPersonShooter'
-description = '...'
+title = 'Third Person Shooter'
+description = 'A third-person shooter prototype in Unreal Engine C++ with movement, weapon aiming and damage systems.'
 categories = ["projects"]
 tags = ["C++", "UnrealEngine", "Gameplay"]
 +++
 
-# Third Person Shooter
 ## UnrealEngine | C++ | Gameplay Programmer
-
 
 Developed a working prototype for a third person shooter game implementing systems such as movement, weapon aiming, damage calculation and other necessary systems.

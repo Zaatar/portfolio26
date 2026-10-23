@@ -1,13 +1,12 @@
 +++
 date = '2026-04-11T18:06:30+02:00'
 draft = false
-title = 'AlienEscape!'
-description = '...'
+title = 'Alien Escape!!'
+description = 'Graduation project: an isometric 3D Unreal Engine game where I led the team and built the 3Cs and the core object-possession mechanic.'
 categories = ["projects"]
 tags = ["C++", "UnrealEngine", "Gameplay"]
 +++
 
-# Alien Escape!!
 ## UnrealEngine | C++ | Team Lead & Gameplay Programmer
 
 <!--![Alien Escape!! Poster](/images/AlienEscape!!.jpg)-->
