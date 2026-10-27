@@ -27,7 +27,8 @@
 
   <a
     class="mt-2 inline-flex items-center px-3 py-1 text-sm font-medium rounded-full border border-neutral-300 hover:border-neutral-500 dark:border-neutral-700 dark:hover:border-neutral-500 text-neutral-600 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors duration-200"
-    href="{{ i18n "cv_url" | relLangURL }}"
+    {{/* relURL, not relLangURL: the PDFs live in static/ at the site root for every language */}}
+    href="{{ i18n "cv_url" | relURL }}"
     download>
     <span class="mr-2.5 flex items-center justify-center w-4 h-4 text-neutral-400">
       {{ partial "icon.html" "download" }}
