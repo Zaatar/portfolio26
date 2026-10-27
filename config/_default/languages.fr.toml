@@ -1,0 +1,27 @@
+disabled = false
+locale = "fr"
+label = "Français"
+weight = 2
+title = "Portfolio - Hani Zaatar"
+
+[params]
+  displayName = "FR"
+  isoCode = "fr"
+  rtl = false
+  # Hugo translates the month names, so keep the English layout here
+  dateFormat = "2 January 2006"
+  description = "Portfolio de Hani Zaatar, programmeur gameplay, UI et outils sous Unreal Engine et C++."
+
+ [params.author]
+   name = "Hani Zaatar"
+   email = "hanimzaatar@gmail.com"
+   image = "https://avatars.githubusercontent.com/u/6802250?v=4"
+   imageQuality = 96
+   headline = "Programmeur Gameplay, UI et Outils"
+   bio = "Programmeur gameplay, UI et outils : je conçois des systèmes de jeu, des interfaces et des outils intégrés à l'éditeur sous Unreal Engine et C++."
+   # Keep in sync with the links in languages.en.toml
+   links = [
+     { email = "mailto:hanimzaatar@gmail.com" },
+     { github = "https://github.com/Zaatar" },
+     { linkedin = "https://linkedin.com/in/hanizaatar" }
+   ]

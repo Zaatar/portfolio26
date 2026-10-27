@@ -1,0 +1,22 @@
+# -- Main Menu (French) --
+# Mirrors menus.en.toml; pageRef resolves to the French translation of each page.
+
+[[main]]
+  name = "Jeux publiés"
+  weight = 10
+
+[[main]]
+  name = "Tides of Tomorrow"
+  parent = "Jeux publiés"
+  pageRef = "projects/TidesOfTomorrow"
+  weight = 11
+
+[[main]]
+  name = "Projets C++"
+  weight = 20
+
+[[main]]
+  name = "Alien Escape!!"
+  parent = "Projets C++"
+  pageRef = "projects/AlienEscape!"
+  weight = 21
